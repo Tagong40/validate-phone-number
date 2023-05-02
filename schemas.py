@@ -10,8 +10,8 @@ class Generate(BaseModel):
     email: str
 
 
-class Instagram(BaseModel):
-    url: str
+class IpAddress(BaseModel):
+    ip: str
 
 
 # class ShowPost(PostModel):

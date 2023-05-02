@@ -1,9 +1,9 @@
 from typing import Union
-from schemas import Validation, Instagram, Generate
+from schemas import Validation, IpAddress, Generate
 from fastapi import FastAPI, HTTPException, Response, Header, Depends
 from validate import validate
 import socket
-from ip import ip
+from ip import get_ip
 import secrets
 from database import engine, SessionLocal
 from models import Base, User
@@ -27,13 +27,13 @@ def get_db():
 
 
 @app.get("/")
-def root():
-    return {"message": "version 1.0.0"}
+def version():
+    return {"version": "1.0.0"}
 
 
 @app.post("/generate-key")
 async def generate_key(request: Generate, db: Session = Depends(get_db)):
-    api_key = secrets.token_hex(16)
+    api_key = secrets.token_hex(20)
     new_user = User(email=request.email, key=api_key,
                     re_key=secrets.token_hex(4).upper())
     db.add(new_user)
@@ -44,16 +44,19 @@ async def generate_key(request: Generate, db: Session = Depends(get_db)):
 
 
 @app.post("/check/phone_number")
-def validate_number(request: Validation, api_key: str = Header(...)):
-    if api_key != "my_api_key":
+def validate_number(request: Validation, db: Session = Depends(get_db), api_key: str = Header(...)):
+    key_exists = db.query(User).filter(User.key == api_key).first()
+
+    if not key_exists:
         raise HTTPException(status_code=400, detail="Invalid API key")
     return validate(request.number)
 
 
 @app.get("/detect/online")
-def online(api_key: str = Header(...)):
+def online(api_key: str = Header(...), db: Session = Depends(get_db)):
+    key_exists = db.query(User).filter(User.key == api_key).first()
 
-    if api_key != "my_api_key":
+    if not key_exists:
         raise HTTPException(status_code=400, detail="Invalid API key")
 
     try:
@@ -63,7 +66,11 @@ def online(api_key: str = Header(...)):
         return {'online': False}
 
 
-# @app.post("/ip/verify")
-# def instaDownloader(request: Instagram):
-#     ip('8.8.8.8')
-#     return request
+@app.post("/ip/verify")
+def verifyIp(request: IpAddress, db: Session = Depends(get_db), api_key: str = Header(...)):
+    key_exists = db.query(User).filter(User.key == api_key).first()
+
+    if not key_exists:
+        raise HTTPException(status_code=400, detail="Invalid API key")
+
+    return get_ip(request.ip)
