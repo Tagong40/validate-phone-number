@@ -26,6 +26,11 @@ def get_db():
         db.close()
 
 
+@app.get("/")
+def root():
+    return {"message": "version 1.0.0"}
+
+
 @app.post("/generate-key")
 async def generate_key(request: Generate, db: Session = Depends(get_db)):
     api_key = secrets.token_hex(16)
