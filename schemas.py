@@ -6,6 +6,10 @@ class Validation(BaseModel):
     number: str
 
 
+class Generate(BaseModel):
+    email: str
+
+
 class Instagram(BaseModel):
     url: str
 
