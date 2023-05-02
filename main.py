@@ -35,7 +35,7 @@ async def generate_key(request: Generate, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(new_user)
     send_email(request.email, api_key)
-    return new_user
+    return {"message": "check your email for api_key!!"}
 
 
 @app.post("/check/phone_number")
