@@ -314,6 +314,7 @@
             <button type="submit">Send Key</button>
 
           </form>
+          <p id="success" style="color:teal; font-size: 12px;"></p>
         </p>
 
         <h3 id="flatdoc-getting-started-phone-validate">Validate Phone</h3>
@@ -626,10 +627,14 @@
   headers: {
     'Content-Type': 'application/json'
   },
-  body: JSON.stringify(formData)
+  body: JSON.stringify({
+    email: formData.get('email')
+  })
 })
 .then(response => response.json())
-.then(data => console.log(data))
+.then(data => {
+  document.getElementById('success').innerHTML = data.message
+})
 .catch(error => console.error(error))
      
       });
