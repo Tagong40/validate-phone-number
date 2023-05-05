@@ -626,9 +626,7 @@
   headers: {
     'Content-Type': 'application/json'
   },
-  body: JSON.stringify({
-    email: formData.get('email'),
-  })
+  body: JSON.stringify(formData)
 })
 .then(response => response.json())
 .then(data => console.log(data))

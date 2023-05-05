@@ -16,7 +16,7 @@ def send_email(recipient, message):
     server.login("api@tensangna.online", "@Tagone20")
 
     try:
-        server.sendmail("Tensangna@tensangna.online",
+        server.sendmail("api@tensangna.online",
                         recipient, email.as_string())
 
     except Exception as e:
