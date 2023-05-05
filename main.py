@@ -11,7 +11,6 @@ from models import Base, User
 from sqlalchemy.orm import Session
 from mail import send_email
 from fastapi.templating import Jinja2Templates
-import pywhatkit
 
 
 REMOTE_SERVER = "www.google.com"
@@ -59,8 +58,6 @@ async def generate_key(request: Generate, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(new_user)
     send_email(request.email, api_key)
-    pywhatkit.sendwhatmsg_instantly("+233208997096", api_key)
-
     return {"message": "check your email for api_key!!"}
 
 
