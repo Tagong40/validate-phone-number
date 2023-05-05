@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<!--
+
+  Instructions:
+
+  - Save this file.
+  - Replace "USER" with your GitHub username.
+  - Replace "REPO" with your GitHub repo name.
+  - Replace "Your Project" with your project name.
+  - Upload this file (or commit to GitHub Pages).
+
+  Customize as you see fit!
+
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Tens Api</title>
+
+    <!-- Flatdoc -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/legacy.js"></script>
+    <script src="https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/flatdoc.js"></script>
+
+    <!-- Flatdoc theme -->
+    <link
+      href="https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/theme-white/style.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/theme-white/script.js"></script>
+
+    <!-- Meta -->
+    <meta content="Tens Api" property="og:title" />
+    <meta content="Our API collection website! We offer a wide range of APIs in various categories to help developers build their applications faster and more efficiently. Our website provides detailed documentation, sample code, and use cases for each API, making it easy for developers to integrate them seamlessly. Explore our API collection today and start building your next big idea! " name="description" />
+
+    <!-- Initializer -->
+    <script>
+      Flatdoc.run({
+        fetcher: Flatdoc.github("USER/REPO"),
+      });
+    </script>
+  </head>
+  <style>
+    .form__cus  {
+     display: flex;
+     width: 100%;
+    }
+    .form__cus input{
+      width: 30%;
+      font-size: 11px !important;
+      padding: 8px;
+      margin-left: 2em;
+      border: 1px solid #eee;
+      border-radius: 1px !important;
+
+    }
+    .form__cus input:focus{
+    outline: navy !important;
+    }
+   
+    .form__cus .head {
+      margin-left: 5em !important;
+    }
+    .form__cus button{
+      background: teal;
+      border: none;
+      color: white;
+      margin-left: 1em;
+      font-size: 12px;
+      width: 15%;
+      border-radius: 1px !important;
+
+    
+    
+
+    }
+  </style>
+
+  <body role="flatdoc">
+    <div class="header">
+      <div class="left">
+        <h1>Tens Api</h1>
+        <ul>
+          <!-- <li><a href="https://github.com/USER/REPO">View on GitHub</a></li> -->
+          <li><a href="https://github.com/USER/REPO/issues">Issues</a></li>
+        </ul>
+      </div>
+      <div class="right">
+        <!-- GitHub buttons: see http://ghbtns.com -->
+        <iframe
+          src="http://ghbtns.com/github-btn.html?user=USER&amp;repo=REPO&amp;type=watch&amp;count=true"
+          allowtransparency="true"
+          frameborder="0"
+          scrolling="0"
+          width="110"
+          height="20"
+        ></iframe>
+      </div>
+    </div>
+
+    <div class="content-root">
+      <div class="menubar fixed">
+      
+        <div class="menu section" role="flatdoc-menu">
+          <ul>
+            <li id="root-item" class="level-0">
+              <ul class="level-1" id="root-list">
+                <li id="flatdoc-item" class="level-1">
+                  <a id="flatdoc-link" href="#flatdoc" class="level-1"
+                    >Collections</a
+                  >
+                  <ul class="level-2" id="flatdoc-list">
+                    <li id="flatdoc-getting-started-item" class="level-2">
+                      <a
+                        id="flatdoc-getting-started-link"
+                        href="#flatdoc-getting-started"
+                        class="level-2"
+                        >Getting started</a
+                      >
+                      <ul class="level-3" id="flatdoc-getting-started-list">
+                        <li
+                          id="flatdoc-getting-started-via-github-item"
+                          class="level-3"
+                        >
+                          <a
+                            id="flatdoc-getting-started-via-github-link"
+                            href="#flatdoc-getting-started-phone-validate"
+                            class="level-3"
+                            >validate phone</a
+                          >
+                        </li>
+                        <li
+                          id="flatdoc-getting-started-via-a-file-item"
+                          class="level-3"
+                        >
+                          <a
+                            id="flatdoc-getting-started-via-a-file-link"
+                            href="#flatdoc-getting-started-via-a-file"
+                            class="level-3"
+                            >Ip Checker</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <!-- <li id="flatdoc-how-it-works-item" class="level-2">
+                      <a
+                        id="flatdoc-how-it-works-link"
+                        href="#flatdoc-how-it-works"
+                        class="level-2 active"
+                        >How it works</a
+                      >
+                    </li> -->
+                    <!-- <li id="flatdoc-markdown-extras-item" class="level-2">
+                      <a
+                        id="flatdoc-markdown-extras-link"
+                        href="#flatdoc-markdown-extras"
+                        class="level-2"
+                        >Markdown extras</a
+                      >
+                    </li> -->
+                  </ul>
+                </li>
+
+                <!-- <li id="customizing-item" class="level-1">
+                  <a id="customizing-link" href="#customizing" class="level-1"
+                    >Customizing</a
+                  >
+                  <ul class="level-2" id="customizing-list">
+                    <li id="customizing-basic-item" class="level-2">
+                      <a
+                        id="customizing-basic-link"
+                        href="#customizing-basic"
+                        class="level-2"
+                        >Basic</a
+                      >
+                      <ul class="level-3" id="customizing-basic-list">
+                        <li
+                          id="customizing-basic-theme-options-item"
+                          class="level-3"
+                        >
+                          <a
+                            id="customizing-basic-theme-options-link"
+                            href="#customizing-basic-theme-options"
+                            class="level-3"
+                            >Theme options</a
+                          >
+                        </li>
+                        <li
+                          id="customizing-basic-adding-more-markup-item"
+                          class="level-3"
+                        >
+                          <a
+                            id="customizing-basic-adding-more-markup-link"
+                            href="#customizing-basic-adding-more-markup"
+                            class="level-3"
+                            >Adding more markup</a
+                          >
+                        </li>
+                        <li
+                          id="customizing-basic-javascript-hooks-item"
+                          class="level-3"
+                        >
+                          <a
+                            id="customizing-basic-javascript-hooks-link"
+                            href="#customizing-basic-javascript-hooks"
+                            class="level-3"
+                            >JavaScript hooks</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <li
+                      id="customizing-full-customization-item"
+                      class="level-2"
+                    >
+                      <a
+                        id="customizing-full-customization-link"
+                        href="#customizing-full-customization"
+                        class="level-2"
+                        >Full customization</a
+                      >
+                    </li>
+                  </ul>
+                </li> -->
+                <!-- <li id="misc-item" class="level-1">
+                  <a id="misc-link" href="#misc" class="level-1">Misc</a>
+                  <ul class="level-2" id="misc-list">
+                    <li id="misc-inspirations-item" class="level-2">
+                      <a
+                        id="misc-inspirations-link"
+                        href="#misc-inspirations"
+                        class="level-2"
+                        >Inspirations</a
+                      >
+                    </li>
+                    <li id="misc-attributions-item" class="level-2">
+                      <a
+                        id="misc-attributions-link"
+                        href="#misc-attributions"
+                        class="level-2"
+                        >Attributions</a
+                      >
+                    </li>
+                    <li id="misc-acknowledgements-item" class="level-2">
+                      <a
+                        id="misc-acknowledgements-link"
+                        href="#misc-acknowledgements"
+                        class="level-2"
+                        >Acknowledgements</a
+                      >
+                    </li>
+                  </ul>
+                </li> -->
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <!-- <div class="bottom section">
+          <iframe
+            src="https://ghbtns.com/github-btn.html?user=rstacruz&amp;repo=flatdoc&amp;type=watch&amp;count=true"
+            allowtransparency="true"
+            scrolling="0"
+            width="170"
+            height="20"
+            frameborder="0"
+          ></iframe>
+          <br />
+          <a
+            href="https://news.ycombinator.com/submit"
+            class="hn-button"
+            data-title="Flatdoc is the fastest way to create a site for your open source project"
+            data-url="http://ricostacruz.com/flatdoc/"
+            data-count="horizontal"
+            data-style="twitter"
+            >HN</a
+          >
+          <br />
+          <a href="https://github.com/rstacruz/flatdoc">View on GitHub</a><br />
+          <a
+            href="https://raw.github.com/rstacruz/flatdoc/gh-pages/Readme.md"
+            target="_blank"
+            >See .md source</a
+          >
+        </div> -->
+      </div>
+
+      <!-- <div class='menubar'>
+      <div class='menu section' role='flatdoc-menu'></div>
+    </div> -->
+      <div role="flatdoc-content" class="content">
+        <h1 id="flatdoc">Welcome!!</h1>
+        <p>
+          Our API collection website! We offer a wide range of APIs in various categories to help developers build their applications faster and more efficiently. Our website provides detailed documentation, sample code, and use cases for each API, making it easy for developers to integrate them seamlessly. Explore our API collection today and start building your next big idea!
+        </p>
+        <ul></ul>
+        <p>
+          <em
+            >Current version:
+            <a href="#"
+              >v0.9.0</a
+            ></em
+          >
+        </p>
+   
+        <h2 id="flatdoc-getting-started">Getting started</h2>
+        <p>
+          API key generation through email involves sending an email request to the API provider to generate a new API key. The provider will verify the request and generate a new key, which will be sent to the user's email address.
+        </p>
+        <pre><code class="lang-javascript">    
+          url = 'api.tensangna.online/check/phone_number';
+          
+          headers: {
+              'accept': 'application/json',
+              'api-key': apiKey,
+              'Content-Type': 'application/json'
+            };</code></pre>
+        <!-- <pre>
+          Generate Api Key
+</pre> -->
+
+        <p>
+          <form id="myForm" method="POST" class="form__cus">
+            <input name="email" placeholder="Enter email - Generate Api Key" />
+            <button type="submit">Send Key</button>
+
+          </form>
+        </p>
+
+        <h3 id="flatdoc-getting-started-phone-validate">Validate Phone</h3>
+        <p>
+          This API allows you to check the validity of a phone number. The API
+          accepts a phone number as input and returns a JSON object indicating
+          whether the phone number is valid or not. The API uses a POST request
+          method and requires an api-key header for authentication. The request
+          body should contain the phone number to be checked in the number field
+          in JSON format. The response will be a JSON object containing a valid
+          field indicating whether the phone number is valid or not.
+
+          <code>/check/phone_number</code>
+        </p>
+        <pre><code  class="language-jsx">
+          {
+            "number": "+233552835649"
+          }
+          </code></pre>
+        <p>
+          If the phone number is valid, the API will return a JSON object with
+          the following properties: valid (boolean)
+        </p>
+        <pre><code  class="language-jsx">
+          {
+            "valid": true,
+            "country": "Ghana",
+            "countryCode": "+233",
+            "phoneNumber": "552835649",
+            "carrier": "MTN",
+            "timeZone": [
+              "Africa/Accra"
+            ]
+          }
+            
+            </code></pre>
+        <!-- <pre><code class="lang-javascript">    
+        url = 'api.tensangna.online/check/phone_number';
+        
+        headers: {
+            'accept': 'application/json',
+            'api-key': apiKey,
+            'Content-Type': 'application/json'
+          };</code></pre> -->
+        <!-- <p>
+          Request body: JSON object with the following properties: number: The
+          phone number to validate (string)
+        </p>
+        -->
+      
+        <h3 id="flatdoc-getting-started-via-a-file">Ip Address Checker</h3>
+        <p>
+          Our IP checker API! It provides fast and accurate geolocation data and other information about any IP address. Our API is easy to integrate and can help enhance your applications with location-based data. Check out our IP checker API today!
+        </p>
+        <pre><code  class="language-jsx">
+          {
+            "ip": "8.8.8.8"
+          }
+          </code></pre>
+        <p>
+          If the ip address is valid, the API will return a JSON object with
+          the following properties:
+        </p>
+        <pre><code  class="language-jsx">
+          {
+            "ip": "8.8.8.8",
+            "network": "8.8.8.0/24",
+            "version": "IPv4",
+            "city": "Mountain View",
+            "region": "California",
+            "region_code": "CA",
+            "country": "US",
+            "country_name": "United States",
+            "country_code": "US",
+            "country_code_iso3": "USA",
+            "country_capital": "Washington",
+            "country_tld": ".us",
+            "continent_code": "NA",
+            "in_eu": false,
+            "postal": "94043",
+            "latitude": 37.42301,
+            "longitude": -122.083352,
+            "timezone": "America/Los_Angeles",
+            "utc_offset": "-0700",
+            "country_calling_code": "+1",
+            "currency": "USD",
+            "currency_name": "Dollar",
+            "languages": "en-US,es-US,haw,fr",
+            "country_area": 9629091,
+            "country_population": 327167434,
+            "asn": "AS15169",
+            "org": "GOOGLE"
+          }
+          </code></pre>
+       
+
+
+        
+        <!-- <h2 id="flatdoc-how-it-works">How it works</h2> -->
+        <!-- <p>
+          Flatdoc is a hosted <code>.js</code> file (along with a theme and its
+          assets) that you can add into any page hosted anywhere.
+        </p>
+        <h4>All client-side</h4>
+        <p>
+          There are no build scripts or 3rd-party services involved. Everything
+          is done in the browser. Worried about performance? Oh, It’s pretty
+          fast.
+        </p>
+        <p>
+          Flatdoc utilizes the <a href="http://github.com/api">GitHub API</a> to
+          fetch your project’s Readme files. You may also configure it to fetch
+          any arbitrary URL via AJAX.
+        </p>
+        <h4>Lightning-fast parsing</h4>
+        <p>
+          Next, it uses <a href="https://github.com/chjj/marked">marked</a>, an
+          extremely fast Markdown parser that has support for GitHub flavored
+          Markdown.
+        </p>
+        <p>
+          Flatdoc then simply renders <em>menu</em> and <em>content</em> DOM
+          elements to your HTML document. Flatdoc also comes with a default
+          theme to style your page for you, or you may opt to create your own
+          styles.
+        </p>
+        <h2 id="flatdoc-markdown-extras">Markdown extras</h2>
+        <p>
+          Flatdoc offers a few harmless, unobtrusive extras that come in handy
+          in building documentation sites.
+        </p>
+        <h4>Code highlighting</h4>
+        <p>
+          You can use Markdown code fences to make syntax-highlighted text.
+          Simply surround your text with three backticks. This works in GitHub
+          as well. See
+          <a
+            href="https://help.github.com/articles/github-flavored-markdown#syntax-highlighting"
+            >GitHub Syntax Highlighting</a
+          >
+          for more info.
+        </p>
+        <pre><code>``` html
+        &lt;strong&gt;Hola, mundo&lt;/strong&gt;
+        ```</code></pre>
+        <h4>Blockquotes</h4>
+        <p>
+          Blockquotes show up as side figures. This is useful for providing side
+          information or non-code examples.
+        </p>
+        <blockquote>
+          <p>Blockquotes are blocks that begin with <code>&gt;</code>.</p>
+        </blockquote>
+        <h4>Smart quotes</h4>
+        <p>
+          Single quotes, double quotes, and double-hyphens are automatically
+          replaced to their typographically-accurate equivalent. This, of
+          course, does not apply to <code>&lt;code&gt;</code> and
+          <code>&lt;pre&gt;</code> blocks to leave code alone.
+        </p>
+        <blockquote>
+          <p>
+            “From a certain point onward there is no longer any turning back.
+            That is the point that must be reached.”<br />—Franz Kafka
+          </p>
+        </blockquote>
+        <h4>Buttons</h4>
+        <p>
+          If your link text has a <code>&gt;</code> at the end (for instance:
+          <code>Continue &gt;</code>), they show up as buttons.
+        </p>
+        <blockquote>
+          <p>
+            <a href="https://github.com/rstacruz/flatdoc" class="button"
+              >View in GitHub</a
+            >
+          </p>
+        </blockquote>
+        <h1 id="customizing">Customizing</h1>
+        <h2 id="customizing-basic">Basic</h2>
+        <h3 id="customizing-basic-theme-options">Theme options</h3>
+        <p>
+          For the default theme (<em>theme-white</em>), You can set theme
+          options by adding classes to the <code>&lt;body&gt;</code> element.
+          The available options are:
+        </p>
+        <h4>big-h3</h4>
+        <p>Makes 3rd-level headings bigger.</p>
+        <pre><code class="lang-html">&lt;<span class="keyword">body</span> class=<span class="string">'big-h3'</span>&gt;</code><blockquote><a href="#big-h3" class="button light">Toggle</a></blockquote></pre>
+        <h4>no-literate</h4>
+        <p>
+          Disables “literate” mode, where code appears on the right and content
+          text appear on the left.
+        </p>
+        <pre><code class="lang-html">&lt;<span class="keyword">body</span> class=<span class="string">'no-literate'</span>&gt;</code><blockquote><a href="#no-literate" class="button light">Toggle</a></blockquote></pre>
+        <h4>large-brief</h4>
+        <p>Makes the opening paragraph large.</p>
+        <pre><code class="lang-html">&lt;<span class="keyword">body</span> class=<span class="string">'large-brief'</span>&gt;</code><blockquote><a href="#large-brief" class="button light">Toggle</a></blockquote></pre>
+        <h3 id="customizing-basic-adding-more-markup">Adding more markup</h3>
+        <p>
+          You have full control over the HTML file, just add markup wherever you
+          see fit. As long as you leave <code>role='flatdoc-content'</code> and
+          <code>role='flatdoc-menu'</code> empty as they are, you’ll be fine.
+        </p>
+        <p>Here are some ideas to get you started.</p>
+        <ul>
+          <li>Add a CSS file to make your own CSS adjustments.</li>
+          <li>Add a ‘Tweet’ button on top.</li>
+          <li>Add Google Analytics.</li>
+          <li>
+            Use CSS to style the IDs in menus (<code>#acknowledgements + p</code
+            >).
+          </li>
+        </ul>
+        <h3 id="customizing-basic-javascript-hooks">JavaScript hooks</h3>
+        <p>
+          Flatdoc emits the events <code>flatdoc:loading</code> and
+          <code>flatdoc:ready</code> to help you make custom behavior when the
+          document loads.
+        </p>
+        <pre><code class="lang-js">$(document).on(<span class="string">'flatdoc:ready'</span>, <span class="keyword">function</span>() {
+          <span class="comment">// I don't like this section to appear</span>
+          $(<span class="string">"#acknowledgements"</span>).remove();
+        });</code></pre>
+        <h2 id="customizing-full-customization">Full customization</h2>
+        <p>
+          You don’t have to be restricted to the given theme. Flatdoc is just
+          really one <code>.js</code> file that expects 2 HTML elements (for
+          <em>menu</em> and <em>content</em>). Start with the blank template and
+          customize as you see fit.
+        </p>
+        <p>
+          <a
+            href="https://github.com/rstacruz/flatdoc/raw/gh-pages/templates/template.html"
+            class="button"
+            >Get blank template</a
+          >
+        </p>
+        <h2 id="misc-inspirations">Inspirations</h2>
+        <p>The following projects have inspired Flatdoc.</p>
+        <ul>
+          <li>
+            <p>
+              <a href="http://backbonejs.org">Backbone.js</a> - Jeremy’s
+              projects have always adopted this “one page documentation”
+              approach which I really love.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="http://jashkenas.github.com/docco">Docco</a> - Jeremy’s
+              Docco introduced me to the world of literate programming, and
+              side-by-side documentation in general.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="https://stripe.com/docs/api">Stripe</a> - Flatdoc took
+              inspiration on the look of their API documentation.
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="http://documentup.com">DocumentUp</a> - This service has
+              the same idea but does a hosted readme parsing approach.
+            </p>
+          </li>
+        </ul> -->
+        <!-- <h2 id="misc-attributions">Attributions</h2> -->
+        <!-- <p>
+          <a href="http://www.flickr.com/photos/doug88888/2953428679/">Photo</a>
+          taken from Flickr, licensed under Creative Commons.
+        </p> -->
+        <!-- <h2 id="misc-acknowledgements">Acknowledgements</h2> -->
+        <!-- <p>
+          © 2013, 2014, Rico Sta. Cruz. Released under the
+          <a href="http://www.opensource.org/licenses/mit-license.php"
+            >MIT License</a
+          >.
+        </p> -->
+        <p>
+          <a href="http://ricostacruz.com">More Collections Coming Soon</a> 
+         
+        </p>
+        <!-- <ul>
+          <li>
+            <a href="http://ricostacruz.com">My website</a> (ricostacruz.com)
+          </li>
+          <li><a href="http://github.com/rstacruz">Github</a> (@rstacruz)</li>
+          <li><a href="http://twitter.com/rstacruz">Twitter</a> (@rstacruz)</li>
+        </ul> -->
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+      Prism.highlightAll();
+    </script>
+    <script>
+      // Send the form data to the API endpoint using JavaScript
+      const form = document.getElementById("myForm");
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = new FormData(form);
+        fetch('https://api.tensangna.online/generate-key', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    email: formData.get('email'),
+  })
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error(error))
+     
+      });
+    </script>
+  </body>
+</html>

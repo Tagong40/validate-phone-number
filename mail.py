@@ -6,26 +6,21 @@ from fastapi.responses import JSONResponse
 
 def send_email(recipient, message):
 
-    # Set up email message
     email = MIMEText(message)
     email['To'] = recipient
-    email['From'] = "hogarghana@gmail.com"
-    email['Subject'] = "Free Api Token"
+    email['From'] = "api@tensangna.online"
+    email['Subject'] = "Your Api Key"
 
-    # Set up SMTP server connection
-    server = smtplib.SMTP('smtp.gmail.com', 587)
-    server.starttls()
-    server.login("hogarghana@gmail.com", "nnlutblemheymfsr")
+    server = smtplib.SMTP_SSL('mail.privateemail.com', 465)
+    # server.starttls()
+    server.login("api@tensangna.online", "@Tagone20")
 
-    # Send email
     try:
-        server.sendmail("hogarghana@gmail.com", recipient, email.as_string())
-        response = {"message": "check your email for your token!!"}
-        status_code = 200
+        server.sendmail("Tensangna@tensangna.online",
+                        recipient, email.as_string())
+
     except Exception as e:
         response = {"message": str(e)}
         status_code = 500
 
-    server.quit()
-
-    # return JSONResponse(content=response, status_code=status_code)
+        return response

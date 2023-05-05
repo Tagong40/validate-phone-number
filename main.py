@@ -1,6 +1,7 @@
+from fastapi.middleware.cors import CORSMiddleware
 from typing import Union
 from schemas import Validation, IpAddress, Generate
-from fastapi import FastAPI, HTTPException, Response, Header, Depends
+from fastapi import FastAPI, HTTPException, Response, Header, Depends, Request
 from validate import validate
 import socket
 from ip import get_ip
@@ -9,6 +10,7 @@ from database import engine, SessionLocal
 from models import Base, User
 from sqlalchemy.orm import Session
 from mail import send_email
+from fastapi.templating import Jinja2Templates
 
 
 REMOTE_SERVER = "www.google.com"
@@ -16,6 +18,21 @@ REMOTE_SERVER = "www.google.com"
 Base.metadata.create_all(engine)
 
 app = FastAPI()
+
+
+app = FastAPI()
+
+origins = ["*"]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+templates = Jinja2Templates(directory="templates")
 
 
 def get_db():
@@ -27,8 +44,9 @@ def get_db():
 
 
 @app.get("/")
-def version():
-    return {"version": "1.0.0"}
+def version(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
+    # return {"version": "1.0.0"}
 
 
 @app.post("/generate-key")
