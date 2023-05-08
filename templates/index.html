@@ -331,7 +331,7 @@
             curl -X 'POST' \
             'https://api.tensangna.online/check/phone_number' \
             -H 'accept: application/json' \
-            -H 'api-key: "your key here"' \
+            -H 'api-key: your key here' \
             -H 'Content-Type: application/json' \
             -d '{
                  "number": "+233208997096"
@@ -373,9 +373,14 @@
 
         </p>
         <pre><code  class="language-jsx">
-          {
-            "ip": "8.8.8.8"
-          }
+          curl -X 'POST' \
+          'https://api.tensangna.online/ip/verify' \
+          -H 'accept: application/json' \
+          -H 'api-key: your key here' \
+          -H 'Content-Type: application/json' \
+          -d '{
+              "ip": "8.8.8.8"
+            }'
           </code></pre>
         <p>
           If the ip address is valid, the API will return a JSON object with
