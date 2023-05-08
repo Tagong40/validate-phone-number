@@ -329,7 +329,14 @@
         </p>
         <pre><code  class="language-jsx">
           {
-            "number": "+233552835649"
+            curl -X 'POST' \
+            'https://api.tensangna.online/check/phone_number' \
+            -H 'accept: application/json' \
+            -H 'api-key: "your key here"' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "number": "+233208997096"
+          }'
           }
           </code></pre>
         <p>
@@ -341,7 +348,7 @@
             "valid": true,
             "country": "Ghana",
             "countryCode": "+233",
-            "phoneNumber": "552835649",
+            "phoneNumber": "208997096",
             "carrier": "MTN",
             "timeZone": [
               "Africa/Accra"
